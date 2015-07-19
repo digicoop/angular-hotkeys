@@ -1,6 +1,12 @@
 /*! 
  * angular-hotkeys v1.4.5
  * https://chieffancypants.github.io/angular-hotkeys
+ * Copyright (c) 2015 Wes Cruver
+ * License: MIT
+ */
+/*!
+ * angular-hotkeys v1.4.5
+ * https://chieffancypants.github.io/angular-hotkeys
  * Copyright (c) 2014 Wes Cruver
  * License: MIT
  */
@@ -38,14 +44,14 @@
      */
     this.template = '<div class="cfp-hotkeys-container fade" ng-class="{in: helpVisible}" style="display: none;"><div class="cfp-hotkeys">' +
                       '<h4 class="cfp-hotkeys-title">{{ title }}</h4>' +
-                      '<table><tbody>' +
-                        '<tr ng-repeat="hotkey in hotkeys | filter:{ description: \'!$$undefined$$\' }">' +
-                          '<td class="cfp-hotkeys-keys">' +
+                      '<ul>' +
+                        '<li ng-repeat="hotkey in hotkeys | filter:{ description: \'!$$undefined$$\' }">' +
+                          '<span class="cfp-hotkeys-keys">' +
                             '<span ng-repeat="key in hotkey.format() track by $index" class="cfp-hotkeys-key">{{ key }}</span>' +
-                          '</td>' +
-                          '<td class="cfp-hotkeys-text">{{ hotkey.description }}</td>' +
-                        '</tr>' +
-                      '</tbody></table>' +
+                          '</span>' +
+                          '<span class="cfp-hotkeys-text">{{ hotkey.description }}</span>' +
+                        '</li>' +
+                      '</ul>' +
                       '<div class="cfp-hotkeys-close" ng-click="toggleCheatSheet()">×</div>' +
                     '</div></div>';
 
