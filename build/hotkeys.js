@@ -403,15 +403,18 @@
             }
 
             if (shouldExecute) {
-              wrapApply(_callback.apply(this, arguments));
+              wrapApply(_callback.bind(this, arguments))();
             }
           };
+        // if this is an array, it means we provided a route object
+        } else if (callback instanceof Array) {
+          callback = wrapApply(callback);
         }
 
         if (typeof(action) === 'string') {
-          Mousetrap.bind(combo, wrapApply(callback), action);
+          Mousetrap.bind(combo, callback, action);
         } else {
-          Mousetrap.bind(combo, wrapApply(callback));
+          Mousetrap.bind(combo, callback);
         }
 
         var hotkey = new Hotkey(combo, description, callback, action, allowIn, persistent);
