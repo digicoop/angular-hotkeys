@@ -1,5 +1,5 @@
 /*! 
- * angular-hotkeys v1.4.5
+ * angular-hotkeys v1.5.1
  * https://chieffancypants.github.io/angular-hotkeys
  * Copyright (c) 2015 Wes Cruver
  * License: MIT
@@ -403,7 +403,7 @@
             }
 
             if (shouldExecute) {
-              wrapApply(_callback.bind(this, arguments))();
+              wrapApply(_callback).apply(this, arguments);
             }
           };
         // if this is an array, it means we provided a route object

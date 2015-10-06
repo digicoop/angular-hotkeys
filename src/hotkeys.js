@@ -397,7 +397,7 @@
             }
 
             if (shouldExecute) {
-              wrapApply(_callback.bind(this, arguments))();
+              wrapApply(_callback).apply(this, arguments);
             }
           };
         // if this is an array, it means we provided a route object
